@@ -23,7 +23,7 @@ public class TestDI {
 	private A a;
 	
 	@Autowired
-	@Qualifier("jjSpecial")
+	@Qualifier("JJ")
 	private CompactDisc jjcd;
 	
 	@Test
