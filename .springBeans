@@ -7,7 +7,7 @@
 	</configSuffixes>
 	<enableImports><![CDATA[false]]></enableImports>
 	<configs>
-		<config>src/com/flouis/spring/resource/spring.xml</config>
+		<config>src/com/flouis/spring/DI/componentscan/resource/spring.xml</config>
 	</configs>
 	<configSets>
 	</configSets>

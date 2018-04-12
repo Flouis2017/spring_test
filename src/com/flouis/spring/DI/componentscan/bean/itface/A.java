@@ -1,4 +1,4 @@
-package com.flouis.spring.bean.itface;
+package com.flouis.spring.DI.componentscan.bean.itface;
 
 import org.springframework.stereotype.Component;
 

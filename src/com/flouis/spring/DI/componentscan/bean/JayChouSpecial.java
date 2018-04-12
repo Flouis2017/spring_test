@@ -1,9 +1,9 @@
-package com.flouis.spring.bean;
+package com.flouis.spring.DI.componentscan.bean;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-import com.flouis.spring.bean.itface.CompactDisc;
+import com.flouis.spring.DI.componentscan.bean.itface.CompactDisc;
 
 @Component("jayChouSpecial")
 @Qualifier("JayChou")
