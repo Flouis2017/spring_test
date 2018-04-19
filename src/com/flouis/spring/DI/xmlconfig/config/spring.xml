@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context.xsd">
+	<bean id="cf" class="com.flouis.spring.DI.xmlconfig.bean.ChineseFilm">
+	<!-- 
+		property是setter()方法的依赖注入，这里注入的是简单的字符串所以直接使用value
+		即可，注入其他bean组件使用ref属性，ref之后会有详细记录。
+	 -->
+		<property name="filmName" value="Let The Bullets Fly"/>
+		<property name="director" value="Wen Jiang"/>
+		<property name="starring" value="Wen Jiang/ Yun-Fat Chow/ You Ge/ Jialing Liu/ Kun Chen"/>
+	</bean>
+	
+	<bean id="jf" class="com.flouis.spring.DI.xmlconfig.bean.JapaneseFilm">
+	<!-- 
+		constructor-arg就是构造器的依赖注入，用法和上面的property标签类似，注入其他
+		bean组件时，也是使用ref来指定的。但是需要注意的是顺序不能乱，否则默认情况下
+		第一value值就是对应到相应类的构造器的第一个参数，或者可以使用以下index/name
+		属性指明对应关系。
+	 -->
+		<constructor-arg value="Spirited Away"/>
+		<constructor-arg value="Miyazaki Hayao"/>
+		<constructor-arg value="Hiiragi Rumi/ Irino Miyu/ Nakamura Akio"/>
+	</bean>
+	<bean id="af" class="com.flouis.spring.DI.xmlconfig.bean.AmericanFilm">
+		<constructor-arg index="2" value="Daniel Radcliffe/ Rupert Grint/ Emma Watson"/>
+		<constructor-arg index="1" value="Warner Bros."/>
+		<constructor-arg index="0" value="Harry Potter"/>
+	</bean>
+	
+	<bean id="chineseFilm" 
+		class="com.flouis.spring.DI.xmlconfig.bean.ChineseFilm"
+		p:filmName="Let The Bullets Fly" 
+		p:director="Wen Jiang"	
+		p:starring="Wen Jiang/ Yun-Fat Chow/ You Ge/ Jialing Liu/ Kun Chen"/>
+		
+	<bean id="japaneseFilm"
+		class="com.flouis.spring.DI.xmlconfig.bean.JapaneseFilm"
+		c:filmName="Spirited Away"
+		c:director="Miyazaki Hayao"
+		c:starring="Hiiragi Rumi/ Irino Miyu/ Nakamura Akio"
+	/>
+	
+	<bean id="americanFilm"
+		class="com.flouis.spring.DI.xmlconfig.bean.AmericanFilm"
+		c:_0="Harry Potter"
+		c:_1="Warner Bros."
+		c:_2="Daniel Radcliffe/ Rupert Grint/ Emma Watson"
+	/>
+	
+	<!-- 使用XML方式进行进行bean组件的依赖注入，关键词：ref -->
+	
+	<!-- 基于setter()方法的依赖注入 -->
+	<bean id="pp_property" class="com.flouis.spring.DI.xmlconfig.bean.PotPlayer">
+		<property name="film" ref="americanFilm"/>
+		<!-- <property name="film">
+			<ref bean="af"/>
+		</property> -->
+	</bean>
+	
+	<bean id="pp_p" class="com.flouis.spring.DI.xmlconfig.bean.PotPlayer"
+		p:film-ref="cf"/>
+	
+	<!-- 基于构造器的依赖注入 -->
+	<bean id="pp_constructor" class="com.flouis.spring.DI.xmlconfig.bean.PotPlayer">
+		<constructor-arg ref="jf"/>
+		<!-- <constructor-arg>
+			<ref bean="jf"/>
+		</constructor-arg> -->
+	</bean>
+	
+	<bean id="pp_c" class="com.flouis.spring.DI.xmlconfig.bean.PotPlayer"
+		c:film-ref="japaneseFilm"/>
+		
+	
+	<!-- list标签的使用 -->
+	<bean id="jointFilm" class="com.flouis.spring.DI.xmlconfig.bean.JointFilm">
+		<property name="filmName" value="Resident Evil.V"/>
+		<property name="director" value="Paul Anderson"/>
+		<property name="actorList">
+			<list>
+				<value>Mirra Jovovich</value>
+				<value>Bingbing Lee</value>
+			</list>
+		</property>	
+	</bean>
+	
+	<bean id="jointFilm2" class="com.flouis.spring.DI.xmlconfig.bean.JointFilm">
+		<constructor-arg name="director" value="Paul Anderson"/>
+		<constructor-arg name="filmName" value="Resident Evil.V"/>
+		<constructor-arg name="actorList">
+			<!-- <null/> -->
+			<list>
+				<value>Bingbing Lee</value>
+				<value>Mirra Jovovich</value>
+			</list>
+		</constructor-arg>
+	</bean>
+
+</beans>
