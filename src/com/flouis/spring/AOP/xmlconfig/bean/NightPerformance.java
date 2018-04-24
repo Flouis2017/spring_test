@@ -1,6 +1,6 @@
-package com.flouis.spring.AOP.bean;
+package com.flouis.spring.AOP.xmlconfig.bean;
 
-import com.flouis.spring.AOP.bean.itface.Performance;
+import com.flouis.spring.AOP.xmlconfig.bean.itface.Performance;
 
 public class NightPerformance implements Performance {
 

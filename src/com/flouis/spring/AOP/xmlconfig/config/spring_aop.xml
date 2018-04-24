@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- 实例化bean组件，包括切面类 -->
+	<bean id="np" class="com.flouis.spring.AOP.xmlconfig.bean.NightPerformance" 
+		c:name="Spring Festival Gala" c:time="20:00"/>
+	<bean id="audience" class="com.flouis.spring.AOP.xmlconfig.bean.Audience"/>
+	
+	<!-- aop相关配置 -->
+	<aop:config>
+		<!-- 声明定义切点 -->
+		<aop:pointcut expression="execution(** com.flouis.spring.AOP..*.perform(..))" id="perform"/>
+		
+		<!-- 切面(类)配置 -->
+		<aop:aspect id="audience" ref="audience">
+			<aop:before method="takeSeats()" pointcut-ref="perform"/>
+			<aop:before method="silenceCellPhone()" pointcut-ref="perform"/>
+			<aop:after method="applause()" pointcut-ref="perform"/>
+			<aop:after-returning method="leave()" pointcut-ref="perform"/>
+			<aop:after-throwing method="refundTicket()" pointcut-ref="perform"/>
+		</aop:aspect>
+	</aop:config>
+</beans>
