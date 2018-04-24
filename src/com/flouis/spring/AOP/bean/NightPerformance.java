@@ -31,7 +31,7 @@ public class NightPerformance implements Performance {
 	}
 
 	public void perform() {
-		System.out.println("Welcome to "+this.name+" at "+this.time+" this night");
+		System.out.println("Welcome to "+this.name+" at "+this.time+" this night!");
 	}
 
 }
