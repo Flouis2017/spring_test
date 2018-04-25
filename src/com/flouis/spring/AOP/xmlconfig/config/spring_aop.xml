@@ -19,7 +19,7 @@
 	<!-- aop相关配置 -->
 	<aop:config>
 		<!-- 声明定义切点 -->
-		<aop:pointcut expression="execution(** com.flouis.spring.AOP..*.perform(..))" id="perform"/>
+		<aop:pointcut expression="execution(** com.flouis.spring.AOP.xmlconfig..*.perform(..))" id="perform"/>
 		
 		<!-- 切面(类)配置 -->
 		<aop:aspect id="audience" ref="audience">

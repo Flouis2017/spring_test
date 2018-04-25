@@ -10,6 +10,7 @@
 		<config>src/com/flouis/spring/DI/componentscan/resource/spring.xml</config>
 		<config>src/com/flouis/spring/DI/xmlconfig/config/spring.xml</config>
 		<config>src/com/flouis/spring/AOP/xmlconfig/config/spring_aop.xml</config>
+		<config>src/com/flouis/spring/AOP/mixedConfig/config/applicationContext.xml</config>
 	</configs>
 	<configSets>
 	</configSets>
