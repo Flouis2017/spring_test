@@ -33,12 +33,13 @@ public class Audience {
 		System.out.println("Demand Refund!");
 	}
 	
+	
 	@Around("pointcut()")
 	public void audienceBehavior(){
 		try{
 			System.out.println("Take seats.");
 			System.out.println("Silence cell phone.");
-			new NightPerformance().perform();
+			new NightPerformance("Spring Festival Gala","20:00").perform();
 			System.out.println("Clap! Clap! Clap!");
 			System.out.println("Leave the Performance.");
 		} catch(Exception e){

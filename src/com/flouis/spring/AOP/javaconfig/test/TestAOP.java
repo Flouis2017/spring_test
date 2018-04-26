@@ -16,8 +16,13 @@ public class TestAOP {
 	@Autowired
 	private Performance np;
 	
+	@Autowired
+	private Performance nightPerformance;
+	
 	@Test
 	public void test(){
+		System.out.println(np);
+		System.out.println(nightPerformance);
 		np.perform();
 	}
 	

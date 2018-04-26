@@ -21,5 +21,5 @@ public class TestAOP {
 	public void test(){
 		this.nightPerformance.perform();
 	}
-
+	
 }
