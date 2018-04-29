@@ -6,8 +6,4 @@
 		 id="WebApp_ID" 
 		 version="3.0">
   <display-name>Spittr</display-name>
-  <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>default.html</welcome-file>
-  </welcome-file-list>
 </web-app>
