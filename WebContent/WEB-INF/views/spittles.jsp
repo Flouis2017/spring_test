@@ -11,7 +11,12 @@
 <script type="text/javascript" src="resource/js/jquery-3.0.0.min.js"></script>
 <script type="text/javascript">
 $(function(){
-	
+	var list = '${list}';
+	console.log(list);
+	console.log(typeof list);
+	list = JSON.parse(list);
+	console.log(list);
+	console.log(list[0].theme);
 	$('#titleName').click(function(){
 		$.ajax({
 			type:'post',
@@ -28,10 +33,13 @@ $(function(){
 			}
 		});
 	});
+	
+	
 });
 </script>
 </head>
 <body>
+	<div id="listDiv"></div>
 	<h2 id="titleName">${titleName}</h2>
 	<h5 id="dateTime">${dateTime}</h5>
 </body>
