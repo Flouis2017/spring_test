@@ -29,7 +29,7 @@ public class SpittleController {
 		map.put("dataTime", sdf.format(new Date()));
 		PrintWriter writer = response.getWriter();
 		String json = JSONObject.fromObject(map).toString();
-		System.out.println(json);
+//		System.out.println(json);
 		writer.write(json);
 		writer.flush();
 		writer.close();

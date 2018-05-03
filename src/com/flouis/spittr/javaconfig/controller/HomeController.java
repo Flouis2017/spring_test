@@ -24,16 +24,16 @@ public class HomeController {
 		modelAndView.addObject("titleName", "Welcome to Spittles");
 		List<Map<String,String>> list = new ArrayList<Map<String,String>>();
 		Map<String,String> map = new HashMap<String,String>();
-		map.put("theme", "Daily Life");
-		map.put("content", "asdfasdfqwerqwer");
+		map.put("title", "Daily Life");
+		map.put("essential", "asdfasdfqwerqwer");
 		list.add(map);
 		map = new HashMap<String,String>();
-		map.put("theme", "Hobbies");
-		map.put("content", "poiupioupoiupiou");
+		map.put("title", "Hobbies");
+		map.put("essential", "poiupioupoiupiou");
 		list.add(map);
-		System.out.println(list);
+//		System.out.println(list);
 		String jsonListStr = JSONArray.fromObject(list).toString();
-		System.out.println(jsonListStr);
+//		System.out.println(jsonListStr);
 		modelAndView.addObject("list",jsonListStr);
 		return modelAndView;
 	}
