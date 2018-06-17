@@ -10,7 +10,9 @@ import com.flouis.spring.AOP.javaconfig.bean.itface.Performance;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes={com.flouis.spring.AOP.javaconfig.config.SpringConfig.class})
+//@ContextConfiguration(classes={com.flouis.spring.AOP.javaconfig.config.SpringConfig.class})
+@ContextConfiguration(classes={com.flouis.spring.AOP.javaconfig.config.SpringConfig.class,
+		com.flouis.spring.AOP.javaconfig.bean.Audience.class})
 public class TestAOP {
 
 	@Autowired
